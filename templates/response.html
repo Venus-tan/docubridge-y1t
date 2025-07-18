@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .table th {
+            background-color: #f2f2f2;
+        }
+        .center {
+            text-align: center;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+    </style>
+</head>
+
+<header class="center">
+    <title>File Upload Response</title>
+</header>
+
+<body class="center">
+    <h1>File Upload Successful</h1>
+    <p><strong>File received:</strong> {{ data.filename }}</p>
+    <p>Question received: {{ data.user_question }}</p>
+    
+    <h2>Spreadsheet Information</h2>
+    <p><strong>Sheet name:</strong> {{ data.sheet_name }}</p>
+    <p><strong>Dimensions:</strong> {{ data.num_rows }} rows × {{ data.num_cols }} columns</p>
+    <p><strong>Columns:</strong> {{ data.column_names|join(', ') }}</p>
+    
+    <h3>Data Preview (first 3 rows)</h3>
+    {{ data.preview_data|safe }}
+    
+    <p><a href="/">Upload another file</a></p>
+</body>
+</html>
